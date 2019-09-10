@@ -1,0 +1,21 @@
+vector<int> Solution::repeatedNumber(const vector<int> &A) {
+    long long s,sum=0,sum2=0,s2=0,rep,miss,diff,add;
+    vector<int> v;
+    long long n = A.size();
+    for(int i=0;i<n;i++)
+    {
+        sum=sum+A[i];
+        sum2=sum2+(long long)((long long)A[i]*(long long)A[i]);
+    }
+    s= (n*(n+1))/2;
+    s2=(((2*n)+1)*(n)*(n+1))/6;
+    diff= (s-sum);
+    add=(s2-sum2)/diff;
+    miss=(add+diff)/2;
+    rep=(add-diff)/2;
+    v.push_back(rep);
+    v.push_back(miss);
+    return v;
+    
+    
+}
